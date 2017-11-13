@@ -3,8 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+    <style media="screen">
+      article {
+        max-width: 700px;
+      }
+    </style>
   </head>
   <body>
-
+    <header>
+      <div class="banner" id="new-album">
+        <p>The latest album is out now! Get it <a href="http://m83.it/buyjunkWe">here!</a></p>
+      </div>
+      <h1><a href="index.html">M83</a></h1>
+    </header>
+    <nav role="navigation">
+      <ul id="navParent">
+        <li id="homeId" class="navChild"><a href="index.html">HOME</a></li>
+        <li id="aboutId" class="navChild"><a href="pages/music.html">MUSIC</a></li>
+        <li id="storeId" class="navChild"><a href="pages/photos.html">PHOTOS</a></li>
+      </ul>
+    </nav>
+    <div class="spotify">
+      <iframe src="https://open.spotify.com/embed/album/0iSRofVrTOCOs841JkSgwk"
+              width="400" height="300" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+    <div>
+      <article id="bio">
+        <!-- from wikipedia -->
+        <h2>ABOUT M83:</h2>
+        <p>M83 is a French electronic music project currently based in Los Angeles. The band's sole official member is vocalist, songwriter, multi-instrumentalist, and record producer Anthony Gonzalez. Formed in 2001 in Antibes, France, the band was initially a duo also featuring Nicolas Fromageau. The band has released seven albums and two soundtracks, including the Grammy Award-nominated Hurry Up, We're Dreaming. Gonzalez and Fromageau parted ways shortly after touring their second album Dead Cities, Red Seas & Lost Ghosts. Gonzalez records primarily on his own, with other artists as guest musicians. The band is signed to Mute Records and found international success in 2011 with the single "Midnight City". Their most recent album Junk was released in 2016.</p>
+      </article>
+    </div>
   </body>
 </html>
