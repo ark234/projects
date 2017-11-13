@@ -4,11 +4,31 @@
     <meta charset="utf-8">
     <title>Store</title>
     <link rel="stylesheet" type="text/css" href="../css/master.css">
+    <style media="screen">
+      .modalDialog {
+        position: fixed;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modalDialog > div {
+        width: 640px;
+        position: relative;
+        margin: 0% auto;
+        background: #fff;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <div class="banner" id="new-album">
-        <p>The latest album is out now! Get it <a href="http://m83.it/buyjunkWe">here!</a></p>
+      <div id="click">
+        <a class="banner" href="http://m83.it/buyjunkWe"><p>GET THE NEW ALBUM HERE!</p></a>
       </div>
       <h1><a href="../index.html">M83</a></h1>
     </header>
@@ -19,37 +39,82 @@
         <li id="storeId" class="navChild"><a href="photos.html">PHOTOS</a></li>
       </ul>
     </nav>
-    <!-- <div class="modalParent" id="slideshow">
-      <div class="modalChild" id="image">
-        <button class="img-class" id="img1"></button>
-        <button class="img-class" id="img2"></button>
-        <button class="img-class" id="img3"></button>
-        <button class="img-class" id="img4"></button>
-        <button class="img-class" id="img5"></button>
-        <button class="img-class" id="img6"></button>
-        <button class="img-class" id="img7"></button>
-        <button class="img-class" id="img8"></button>
-        <button class="img-class" id="img9"></button>
-        <button class="img-class" id="img10"></button> -->
+
     <div class="modalParent" id="slideshow">
       <div class="modalChild" id="image">
-        <a class="btn" href="#open-modal1"><img src="https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="http://diymag.com/media/img/Artists/M/m83/Latitude-2016/_1500xAUTO_crop_center-center_75/M83-Latitude-20160717-Emma-Swann-4009-2048.jpg" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5znBeRI19PNEl5blhqwIFAZApReujRM8Zn0L2By_rEJM2lw-bbQ" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="http://ilovem83.com/wp-content/uploads/2017/01/m83-share-TBJCX6fQ.png" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="http://floodmagazine.com/wp-content/uploads/2014/10/m83_2014_moonchild-video-screenshot.png" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="https://s-media-cache-ak0.pinimg.com/originals/ae/31/b0/ae31b024fcd396f0e28fa776269b4fc9.jpg" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="https://media.livenation.com/artists/43001/43001-show-65300.jpg?1374688414https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="https://static.spin.com/files/2016/03/m83-junk-album-review-compressed.jpg" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="http://www.viesmag.com/wp-content/uploads/2016/06/M83-live-at-Sasquatch-2016-8.jpg" alt="M83_Junk" width="320px" height="180px"></a>
-        <a class="btn" href="#open-modal"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/M83_mp3h1704.jpg/1200px-M83_mp3h1704.jpg" alt="M83_Junk" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal1"><img src="https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="img1" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal2"><img src="http://diymag.com/media/img/Artists/M/m83/Latitude-2016/_1500xAUTO_crop_center-center_75/M83-Latitude-20160717-Emma-Swann-4009-2048.jpg" alt="img2" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5znBeRI19PNEl5blhqwIFAZApReujRM8Zn0L2By_rEJM2lw-bbQ" alt="img3" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal4"><img src="http://ilovem83.com/wp-content/uploads/2017/01/m83-share-TBJCX6fQ.png" alt="img4" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal5"><img src="http://floodmagazine.com/wp-content/uploads/2014/10/m83_2014_moonchild-video-screenshot.png" alt="img5" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal6"><img src="https://s-media-cache-ak0.pinimg.com/originals/ae/31/b0/ae31b024fcd396f0e28fa776269b4fc9.jpg" alt="img6" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal7"><img src="https://media.livenation.com/artists/43001/43001-show-65300.jpg?1374688414https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="img7" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal8"><img src="https://static.spin.com/files/2016/03/m83-junk-album-review-compressed.jpg" alt="img8" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal9"><img src="http://www.viesmag.com/wp-content/uploads/2016/06/M83-live-at-Sasquatch-2016-8.jpg" alt="img9" width="320px" height="180px"></a>
+        <a class="btn" href="#open-modal10"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/M83_mp3h1704.jpg/1200px-M83_mp3h1704.jpg" alt="img10" width="320px" height="180px"></a>
       </div>
     </div>
-    <!-- <div class="modal" id="open-modal">
+
+<!-- Modal box here -->
+    <div id="open-modal1" class="modalDialog">
       <div>
-        <a href="#modal-close" title="Close" class="modal-close">X</a>
-        <img src="https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="M83_Junk">
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="img1" width="640px" height="360">
       </div>
-    </div> -->
+    </div>
+    <div id="open-modal2" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="http://diymag.com/media/img/Artists/M/m83/Latitude-2016/_1500xAUTO_crop_center-center_75/M83-Latitude-20160717-Emma-Swann-4009-2048.jpg" alt="img2" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal3" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5znBeRI19PNEl5blhqwIFAZApReujRM8Zn0L2By_rEJM2lw-bbQ" alt="img3" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal4" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="http://ilovem83.com/wp-content/uploads/2017/01/m83-share-TBJCX6fQ.png" alt="img4" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal5" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="http://floodmagazine.com/wp-content/uploads/2014/10/m83_2014_moonchild-video-screenshot.png" alt="img5" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal6" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="https://s-media-cache-ak0.pinimg.com/originals/ae/31/b0/ae31b024fcd396f0e28fa776269b4fc9.jpg" alt="img6" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal7" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="https://media.livenation.com/artists/43001/43001-show-65300.jpg?1374688414https://i.ytimg.com/vi/U3YZTYXftzg/maxresdefault.jpg" alt="img7" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal8" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="https://static.spin.com/files/2016/03/m83-junk-album-review-compressed.jpg" alt="img8" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal9" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="http://www.viesmag.com/wp-content/uploads/2016/06/M83-live-at-Sasquatch-2016-8.jpg" alt="img9" width="640px" height="360">
+      </div>
+    </div>
+    <div id="open-modal10" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/M83_mp3h1704.jpg/1200px-M83_mp3h1704.jpg" alt="img10" width="640px" height="360">
+      </div>
+    </div>
   </body>
 </html>
