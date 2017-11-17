@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
+    <link rel="stylesheet" href="master.css">
+    <meta charset="utf-8">
+    <title>Calculator</title>
+  </head>
+  <body>
+    <header>
+      <h1>Arkulator</h1>
+    </header>
+    <div class="grid-container">
+      <div class="grid-item" id="header">
+        <p id="result">0</p>
+      </div>
+
+      <div class="grid-item">
+        <button class="num" id="num7">7</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="num8">8</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="num9">9</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="ac">AC</button>
+      </div>
+
+      <div class="grid-item">
+        <button class="num" id="num4">4</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="num5">5</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="num6">6</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="plus">+</button>
+      </div>
+
+      <div class="grid-item">
+        <button class="num" id="num1">1</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="num2">2</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="num3">3</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="minus">-</button>
+      </div>
+
+      <div class="grid-item">
+        <button class="num" id="num0">0</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="period">.</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="divide">&#247;</button>
+      </div>
+      <div class="grid-item">
+        <button class="num" id="multiply">&#215;</button>
+      </div>
+
+      <div class="grid-item">
+        <button class="num" id="modulo">%</button>
+      </div>
+      <div class="grid-item" id="avg">
+        <button class="num" id="avg-btn">AVG</button>
+      </div>
+      <div class="grid-item" id="equal">
+        <button class="num" id="equal-btn">=</button>
+      </div>
+    </div>
+
+    <script>
+      // declare global vars
+      var result = 0;
+      var temp = "";
+      var array = [];
+      var operator = '';
+      // cache HTML elements into JS vars
+      // let result = document.getElementById('result').innerHTML;
+      let num7 = document.getElementById('num7');
+      let num8 = document.getElementById('num8');
+      let num9 = document.getElementById('num9');
+      let ac = document.getElementById('ac');
+
+      let num4 = document.getElementById('num4');
+      let num5 = document.getElementById('num5');
+      let num6 = document.getElementById('num6');
+      let plus = document.getElementById('plus');
+
+      let num1 = document.getElementById('num1');
+      let num2 = document.getElementById('num2');
+      let num3 = document.getElementById('num3');
+      let minus = document.getElementById('minus');
+
+      let num0 = document.getElementById('num0');
+      let period = document.getElementById('period');
+      let divide = document.getElementById('divide');
+      let multiply = document.getElementById('multiply');
+
+      let modulo = document.getElementById('modulo');
+      let avg = document.getElementById('avg-btn');
+      let equal = document.getElementById('equal-btn');
+
+      // Add event listeners
+      num7.addEventListener('click', function() {
+        temp += '7';
+        document.getElementById('result').innerHTML = temp;
+      });
+      num8.addEventListener('click', function() {
+        temp += '8';
+        document.getElementById('result').innerHTML = temp;
+      });
+      num9.addEventListener('click', function() {
+        temp += '9';
+        document.getElementById('result').innerHTML = temp;
+      });
+      ac.addEventListener('click', function() {
+        temp = "";
+        result = 0;
+        array = [];
+        operator = '';
+        document.getElementById('result').innerHTML = temp;
+      });
+
+      num4.addEventListener('click', function() {
+        temp += '4';
+        document.getElementById('result').innerHTML = temp;
+      });
+      num5.addEventListener('click', function() {
+        temp += '5';
+        document.getElementById('result').innerHTML = temp;
+      });
+      num6.addEventListener('click', function() {
+        temp += '6';
+        document.getElementById('result').innerHTML = temp;
+      });
+      plus.addEventListener('click', function() {
+        array.push(temp * 1); // unary operator converts string to int
+        result += temp * 1;
+        temp = '';
+        operator = 'plus';
+        document.getElementById('result').innerHTML = result;
+      });
+
+      num1.addEventListener('click', function() {
+        temp += '1';
+        document.getElementById('result').innerHTML = temp;
+      });
+      num2.addEventListener('click', function() {
+        temp += '2';
+        document.getElementById('result').innerHTML = temp;
+      });
+      num3.addEventListener('click', function() {
+        temp += '3';
+        document.getElementById('result').innerHTML = temp;
+      });
+      minus.addEventListener('click', function() {
+        if(array.length > 0) {
+          result -= temp * 1;
+        } else {
+          result = temp;
+        }
+        array.push(temp * 1); // unary operator converts string to int
+        temp = '';
+        operator = 'minus';
+        document.getElementById('result').innerHTML = result;
+      });
+
+      num0.addEventListener('click', function() {
+        temp += '0';
+        document.getElementById('result').innerHTML = temp;
+      });
+      period.addEventListener('click', function() {
+        if(!temp.includes('.')) { // if string doesn't include '.'
+          temp += '.';
+          document.getElementById('result').innerHTML = temp;
+        }
+      });
+      divide.addEventListener('click', function() {
+        if(array.length > 0) {
+          result /= temp * 1;
+        } else {
+          result = temp;
+        }
+        array.push(temp * 1); // unary operator converts string to int
+        temp = '';
+        operator = 'divide';
+        document.getElementById('result').innerHTML = result;
+      });
+      multiply.addEventListener('click', function() {
+        if(array.length > 0) {
+          result *= temp * 1;
+        } else {
+          result = temp;
+        }
+        array.push(temp * 1); // unary operator converts string to int
+        temp = '';
+        operator = 'multiply';
+        document.getElementById('result').innerHTML = result;
+      });
+
+      modulo.addEventListener('click', function() {
+        result = temp;
+        temp = '';
+        operator = 'modulo';
+      });
+      avg.addEventListener('click', function() {
+        array.push(temp * 1);
+        document.getElementById('result').innerHTML =
+          array.reduce(add, 0) / array.length;
+      });
+      equal.addEventListener('click', function() {
+        if(operator === 'plus') {
+          result += temp * 1;
+          temp = '';
+          operator = 'plus';
+          document.getElementById('result').innerHTML = result;
+        } else if (operator === 'minus') {
+          result -= temp * 1;
+          temp = '';
+          operator = 'minus';
+          document.getElementById('result').innerHTML = result;
+        } else if (operator === 'multiply') {
+          result *= temp * 1;
+          temp = '';
+          operator = 'multiply';
+          document.getElementById('result').innerHTML = result;
+        } else if (operator === 'divide') {
+          result /= temp * 1;
+          temp = '';
+          operator = 'divide';
+          document.getElementById('result').innerHTML = result;
+        } else if (operator === 'modulo') {
+          result = result % (temp * 1);
+          document.getElementById('result').innerHTML = result;
+        }
+      });
+
+      // helper functions
+      var add = (a, b) => a + b;
+      var sub = (a, b) => a - b;
+      var mul = (a, b) => a * b;
+      var div = (a, b) => a / b;
+
+      // button blink animation
+      $("button").click(function() {
+        $(this).animate
+      });
+    </script>
+  </body>
+</html>
