@@ -33,6 +33,7 @@ button {
 #result {
   height: 20px;
 }
+
 /* Cosmetics Below */
 body {
   background-image: url("https://i.giphy.com/media/WoD6JZnwap6s8/giphy.webp");
@@ -47,6 +48,7 @@ button {
   background: lightgreen;
   font-family: 'Rozha One', serif;
   font-size: 20px;
+  animation: slide 2s;
 }
 #header {
   background: lightgreen;
@@ -57,13 +59,19 @@ button {
   background-color: lightblue;
   border: 1px solid #bbb;
   padding: 10px;
-  border-radius: 10px
+  border-radius: 10px;
 }
-.grid-item, .grid-header{
+.grid-item, .grid-header {
   background-color: lightgrey;
   border: 1px solid #ccc;
   border-radius: 10px;
+  animation: slide 1s;
 }
 .num:active {
   background-color: red;
+}
+@keyframes slide {
+  0% {
+    transform: translateY(-1000px);
+  }
 }
