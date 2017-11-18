@@ -1,0 +1,137 @@
+/* Size and Positioning */
+header, nav {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+main {
+  width: 58%;
+}
+footer {
+  text-align: center;
+}
+footer img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+.grid-container {
+  margin: 0 auto;
+  width: 97%;
+  display: grid;
+  grid-template-rows: 1fr 50px auto 1fr;
+  grid-gap:10px;
+}
+.grid-item {
+  margin: 0 auto;
+}
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.menu-item{
+
+}
+.menu-item a{
+  padding: 0 20px;
+  text-decoration: none;
+  font-size: 24px;
+}
+h1 {
+  font-size: 52px;
+}
+h2 {
+  font-size: 28px;
+}
+p {
+  font-size: 20px;
+}
+.burger1 {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  ]
+}
+
+
+/* Colors and Fonts */
+body {
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*background-position: center;*/
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  font-family: 'Indie Flower', cursive;
+}
+header {
+  color: white;
+  /*background: rgba(0, 123, 123, 0.2);*/
+}
+main {
+  color: white;
+  /*background: rgba(0, 0, 255, 0.2);*/
+}
+footer {
+  color: white;
+  /*background: rgba(0, 123, 123, 0.2);*/
+}
+.grid-container {
+  /*background: rgba(255, 0, 0, 0.2);*/
+  /*border: 1px solid #bbb;*/
+  padding: 10px;
+}
+.grid-item {
+  /*background: rgba(0, 255, 0, 0.2);*/
+  /*border: 1px solid #ccc;*/
+}
+.menu {
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  padding-top: 10px;
+  /*background: rgba(234, 0, 255, 0.2);*/
+}
+
+.menu-item a {
+  /*background: rgba(255, 255, 255, 0.4);*/
+  color: white;
+}
+.menu-item a:hover{
+  color: white;
+  background: rgba(255, 25, 0, 1);
+}
+h2 {
+  border-bottom: 1px solid grey;
+}
+
+/* Animations */
+.burger1 {
+  animation: slide 24s infinite linear;
+}
+.burger2 {
+  animation: scale 14s infinite;
+}
+#burger {
+  animation: spin 15s ease-in-out infinite;
+}
+@keyframes slide {
+  0% {transform: translateX(150%);}
+  50% {transform: translateX(-150%);}
+  100% {transform: translateX(150%);}
+}
+@keyframes scale {
+  0% {transform: scale(0.25);}
+  50% {transform: scale(0.5);}
+  100% {transform: scale(0.25);}
+}
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}

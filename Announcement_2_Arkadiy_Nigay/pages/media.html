@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../master.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <title>Media</title>
+    <style media="screen">
+    /* Size and Positioning */
+
+    .slide {
+			width: 640px;
+			height: 360px;
+		}
+		.slideshow, .trailer{
+			display: flex;
+			justify-content: center;
+		}
+		.slideshow button {
+			width: 50px;
+		}
+    </style>
+  </head>
+  <body>
+    <!-- Floating burger! -->
+    <div class="burger1">
+      <div class="burger2">
+        <img id="burger" src="images/burger.png" alt="burger">
+      </div>
+    </div>
+    
+    <div class="grid-container">
+      <header class="grid-item"><h1>Bill and Ted's Excellent Adventure</h1></header>
+
+      <nav class="grid-item">
+        <ul class="menu">
+          <li class="menu-item"><a href="../index.html">HOME</a></li>
+          <li class="menu-item"><a href="cast.html">CAST</a></li>
+          <li class="menu-item"><a href="quotes.html">QUOTES</a></li>
+          <li class="menu-item"><a href="media.html">MEDIA</a></li>
+        </ul>
+      </nav>
+
+      <main class="grid-item">
+        <h2>BILL AND TED'S EXCELLENT SLIDESHOW</h2>
+        <section class="slideshow">
+      		<button class="back-button" onclick="decImg()">&#10094;</button>
+          <img class="slide" src="https://consequenceofsound.files.wordpress.com/2017/02/bill-and-ted.jpg?quality=80&w=807">
+      		<img class="slide" src="http://images.mentalfloss.com/sites/default/files/bill_ted1.jpg?resize=1100x740">
+          <img class="slide" src="http://cdn.skim.gs/images/v1/msi/sbyhy8dcisuwgblky5op/excellent-bill-and-ted-phrases-you-can-use-in-any-situation">
+          <img class="slide" src="https://thenypost.files.wordpress.com/2015/03/billandted.jpg?quality=90&strip=all">
+          <img class="slide" src="https://metrouk2.files.wordpress.com/2016/06/bill-and-ted-mountain.jpg?w=620&h=416&crop=1">
+          <img class="slide" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTgwMjE2NDE4M15BMl5BanBnXkFtZTcwMTU4MzcyNA@@._V1_.jpg">
+          <img class="slide" src="http://www.liketotally80s.com/wp-content/uploads/2015/05/bill-ted-wyld-stallyns.jpg">
+      		<button class="forward-button" onclick="incImg()">&#10095;</button>
+    	  </section>
+
+        <h2>BILL AND TED'S EXCELLENT TRAILER</h2>
+        <div class="trailer">
+          <iframe width="640px" height="360" src="https://www.youtube.com/embed/q3fx6TugN7g?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+      	<script type="text/javascript">
+      		var index = 1;
+      		displayImages(index);
+
+      		function incImg() {
+      			displayImages(++index);
+      		}
+
+          function decImg() {
+      			displayImages(--index);
+      		}
+
+      		function displayImages(n) {
+      			var i = 0;
+      			var images = document.getElementsByClassName('slide');
+      			if(n > images.length) {index = 1;}
+      			if(n < 1) {index = images.length;}
+            while (i < images.length) {
+              images[i].style.display = "none";
+              i++;
+            }
+      			images[index-1].style.display = "block";
+      		}
+      	</script>
+      </main>
+
+      <footer class="grid-item">
+        <h2>Follow us on facebook!</h2>
+        <a href="https://www.facebook.com/Bill-Teds-Excellent-Adventure-The-Movie-238232546304565/">
+          <img src="https://i2.wp.com/www.7thstreetpublicmarket.com/wp-content/uploads/2017/08/facebook-icon-preview-1-400x400.png" alt="facebook">
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
