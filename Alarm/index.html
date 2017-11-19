@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Alarm Clock</title>
+    <style media="screen">
+      body {
+        background-image: url("https://media.giphy.com/media/dXoQnoUUSUIvK/giphy.gif");
+        background-size: cover;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main {
+        /*margin: 0 auto;*/
+        text-align: center;
+        /*padding: 10px;*/
+
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%);
+        /*width: 40%;*/
+        /*height: 50%;*/
+        border: solid red 1px;
+      }
+      main .alarm-button {
+        padding: 5px;
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 id="time"></h1>
+      <div class="alarmTime">
+        <select class="alarm" id="hour"></select>
+        <select class="alarm" id="minute"></select>
+        <select class="alarm" id="second"></select>
+      </div>
+      <div class="alarmButtons">
+        <button class="alarm-button" id="set-alarm" onclick="setAlarm()">Set Alarm</button>
+        <button class="alarm-button" id="clear-alarm" onclick="resetAlarm()">Clear Alarm</button>
+      </div>
+      <p id="alarm-time"></p>
+    </main>
+
+    <script type="text/javascript">
+      // Add alarm sound
+      var alarmSound = new Audio("https://www.freespecialeffects.co.uk/soundfx/telephone/phone_offhook.wav");
+      alarmSound.loop = true;
+
+      // Get Local Time
+      function getTime() {
+        let date = new Date;
+        let seconds = date.getSeconds();
+        let minutes = date.getMinutes();
+        let hours = date.getHours();
+        // Add leading zero to hours/minutes/seconds with values less than 10
+        hours = addZero(hours);
+        minutes = addZero(minutes);
+        seconds = addZero(seconds);
+
+        // Set inner html of element id of 'time' to hours:minutes:seconds
+        var currentTime = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('time').innerHTML = currentTime;
+        // console.log(`Local Time: ${currentTime}`);
+        return currentTime;
+      }
+      // Call getTime() function every 1000ms
+      // setInterval(getTime, 1000);
+
+      // Add leading zero to minutes/seconds less than 10
+      function addZero(t) {
+        return (t < 10) ? `0${t}` : t;
+      }
+
+      // Populate dropdown options for element id 'hour'
+      function alarmHours() {
+        let hour = document.getElementById('hour');
+
+        for (var i=0; i<24; i++) {
+          hour.options[i] = new Option(addZero(i), i);
+        }
+      }
+      alarmHours();
+
+      // Populate dropdown options for element id 'minute'
+      function alarmMinutes() {
+        let minute = document.getElementById('minute');
+
+        for (var i=0; i<60; i++) {
+          minute.options[i] = new Option(addZero(i), i);
+        }
+      }
+      alarmMinutes();
+
+      // Populate dropdown options for element id 'second'
+      function alarmSeconds() {
+        let second = document.getElementById('second');
+
+        for (var i=0; i<60; i++) {
+          second.options[i] = new Option(addZero(i), i);
+        }
+      }
+      alarmSeconds();
+
+      // Set alarm to whatever the values in the dropdown are set to
+      function setAlarm() {
+        let hours = document.getElementById('hour').selectedIndex;
+        let minutes = document.getElementById('minute').selectedIndex;
+        let seconds = document.getElementById('second').selectedIndex;
+        // Add leading zeros to hours/minutes/seconds if needed
+        hours = addZero(hours);
+        minutes = addZero(minutes);
+        seconds = addZero(seconds);
+
+        // Set alarm to a var in hours:minutes:seconds format
+        var alarmTime = `${hours}:${minutes}:${seconds}`;
+        console.log(`Alarm set for ${alarmTime}`);
+        document.getElementById('alarm-time').innerHTML = `${alarmTime}`;
+      }
+
+      // Clear alarm and pause sound if it's playing
+      function resetAlarm() {
+        alarmSound.pause();
+      }
+
+      // Check if currentTime == alarmTime
+      function alarm() {
+        // let currentTime = document.getElementById('time').innerHTML;
+        let currentTime = getTime();
+        let alarmTime = document.getElementById('alarm-time').innerHTML;
+        // console.log(`Current Time: ${currentTime}`);
+        // console.log(`Alarm Time: ${alarmTime}`);
+        if(currentTime == alarmTime) {
+          console.log("ALARM! ALARM! ALARM!");
+          alarmSound.play();
+        }
+      }
+      setInterval(alarm, 1000);
+    </script>
+  </body>
+</html>
