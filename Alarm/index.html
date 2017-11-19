@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Alarm Clock</title>
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet">
     <style media="screen">
       body {
         background-image: url("https://media.giphy.com/media/dXoQnoUUSUIvK/giphy.gif");
@@ -20,13 +21,29 @@
         left: 50%
         top: 50%
         transform: translate(-50%, -50%);
-        /*width: 40%;*/
-        /*height: 50%;*/
-        border: solid red 1px;
+      }
+      main h1 {
+        font-family: 'Aclonica', sans-serif;
+        font-size: 150px;
       }
       main .alarm-button {
+        font-family: 'Aclonica', sans-serif;
         padding: 5px;
-        margin: 30px;
+        margin: 130px 30px;
+        font-size: 32px;
+        border-radius: 10px;
+      }
+      .alarm-button:active {
+        background-color: yellow;
+      }
+      .alarm-button:focus {
+        outline: 0;
+      }
+      #set-alarm {
+        color: green;
+      }
+      #clear-alarm {
+        color: red;
       }
     </style>
   </head>
