@@ -12,6 +12,7 @@
   left: 1305px;
   top: 605px;
   position: absolute;
+  z-index: 1;
 }
 p {
 	text-align: center;
@@ -26,6 +27,10 @@ h1 {
 /*Colors and Fonts*/
 .platform-container {
   background-color: grey;
+}
+.platform-start {
+	background-image: url("../images/ps.png");
+	background-size: cover;
 }
 .platform-win {
   background-image: url("../images/ga.png");
