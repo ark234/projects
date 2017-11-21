@@ -1,17 +1,4 @@
 /*Size & Positioning*/
-.platform-container {
-  width: 1400px;
-  height: 700px;
-  position: relative;
-}
-.platform-win {
-  width: 90px;
-  height: 90px;
-  left: 1305px;
-  top: 605px;
-  position: absolute;
-  z-index: 1;
-}
 .platform-start {
   width: 100px;
   height: 100px;
@@ -35,12 +22,6 @@
 
 
 /*Colors and Fonts*/
-.platform-container {
-  background-color: grey;
-}
-.platform-win {
-  background-color: green;
-}
 .platform-start {
 	background-color: rgba(255,255,0,1);
 }

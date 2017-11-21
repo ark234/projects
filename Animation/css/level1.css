@@ -1,20 +1,15 @@
 /*Size & Positioning*/
-.platform-container {
-  width: 1400px;
-  height: 700px;
-  position: relative;
+.platform-start {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
 }
 .platform-win {
   width: 90px;
   height: 90px;
   left: 1305px;
-  top: 5px;
-  position: absolute;
-  z-index: 1;
-}
-.platform-start {
-  width: 100px;
-  height: 100px;
+  top: 5px !important;
   position: absolute;
   z-index: 1;
 }
@@ -29,18 +24,9 @@
 
 
 /*Colors and Fonts*/
-.platform-container {
-  background-color: grey;
-}
-.platform-win {
-  background-color: green;
-}
 .platform-start {
 	background-color: rgba(255,255,0,1);
 }
 #one {
-  background-color: rgba(255,0,0,0.5);
-}
-#two {
   background-color: rgba(255,0,0,0.5);
 }

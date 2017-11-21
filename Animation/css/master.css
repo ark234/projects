@@ -5,7 +5,7 @@
   position: relative;
   margin: 10px auto;
 }
-/*
+
 .platform-win {
   width: 90px;
   height: 90px;
@@ -14,24 +14,6 @@
   position: absolute;
   z-index: 1;
 }
-.platform-start {
-	width: 100px;
-	height: 100px;
-	position: absolute;
-}
-#one {
-  width: 1300px;
-  height: 100px;
-  position: absolute;
-  left: 100px;
-}
-#two {
-  width: 100px;
-  height: 700px;
-  position: absolute;
-  left: 1300px;
-}
-*/
 p {
 	text-align: center;
 }
@@ -47,16 +29,8 @@ h1 {
   background-color: grey;
 }
 .platform-win {
-  background-color: green;
-}
-.platform-start {
-	background-color: rgba(255,255,0,1);
-}
-#one {
-  background-color: rgba(255,0,0,0.5);
-}
-#two {
-  background-color: rgba(255,0,0,0.5);
+  background-image: url("../images/ga.png");
+  background-size: cover;
 }
 a {
 	text-decoration: none !important;

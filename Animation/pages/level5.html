@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Level 4</title>
+    <title>Level 5</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/master.css">
-	<link rel="stylesheet" href="../css/level4.css">
+	<link rel="stylesheet" href="../css/level5.css">
 	
   </head>
   <body>
@@ -13,11 +13,10 @@
       <div class="platform-win"></div>
 	  <div class="platform-start" onmouseover="move()"></div>
       <div class="platform" id="one"></div>
-      <div class="platform" id="two"></div>
     </div>
 	<p>
-		<button id="previous"><a href="level3.html">Previous Level</a></button>
-		<button id="next"><a href="level5.html">Next Level</a></button>
+		<button id="previous"><a href="level4.html">Previous Level</a></button>
+		<button id="next"><a href="level6.html">Next Level</a></button>
 	</p>
 	<p>
 		<button id="main"><a href="../index.html">Main Menu</a></button>
@@ -36,37 +35,6 @@
 				alert("You lose!");
 			}
 		});
-		
-		function move() {
-			var platformOne = document.getElementById("one");
-			var platformTwo = document.getElementById("two");
-			var pos = 0;
-			var posOne = 0;
-			var posTwo = 1200;
-			var interval = setInterval(frame, 10); 			
-			
-			function frame() {
-				pos++;
-				
-				if(pos <= 500) {
-					posOne++;
-					posTwo = posTwo - 2;
-					platformOne.style.top = `${posOne}px`;
-					platformTwo.style.left = `${posTwo}px`;
-				}
-				else if(pos <= 1000) {
-					posOne--;
-					posTwo = posTwo + 2;
-					platformOne.style.top = `${posOne}px`;
-					platformTwo.style.left = `${posTwo}px`;
-				}
-				/* if(posTwo >= 100) {
-					posTwo = posTwo - 2;
-					platformTwo.style.left = `${posTwo}px`;
-				} */
-				// $('.platform-win').mouseenter(clearInterval(interval));
-			}
-		}
 		
     </script>
   </body>
