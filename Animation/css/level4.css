@@ -3,9 +3,13 @@
   width: 1400px;
   height: 700px;
   position: relative;
-  margin: 10px auto;
 }
-/*
+.platform-start {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+}
 .platform-win {
   width: 90px;
   height: 90px;
@@ -14,29 +18,18 @@
   position: absolute;
   z-index: 1;
 }
-.platform-start {
-	width: 100px;
-	height: 100px;
-	position: absolute;
-}
-#one {
-  width: 1300px;
-  height: 100px;
+#one{
+  width: 200px;
+  height: 200px;
   position: absolute;
   left: 100px;
 }
-#two {
-  width: 100px;
-  height: 700px;
+#two{
+  width: 200px;
+  height: 200px;
   position: absolute;
-  left: 1300px;
-}
-*/
-p {
-	text-align: center;
-}
-h1 {
-	text-align: center;
+  left: 1200px;
+  top: 500px;
 }
 /*Animations*/
 
@@ -57,14 +50,4 @@ h1 {
 }
 #two {
   background-color: rgba(255,0,0,0.5);
-}
-a {
-	text-decoration: none !important;
-}
-p {
-	color: white;
-}
-h1 {
-	color: white;
-	font-size: 72px;
 }

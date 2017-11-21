@@ -3,9 +3,7 @@
   width: 1400px;
   height: 700px;
   position: relative;
-  margin: 10px auto;
 }
-/*
 .platform-win {
   width: 90px;
   height: 90px;
@@ -15,28 +13,22 @@
   z-index: 1;
 }
 .platform-start {
-	width: 100px;
-	height: 100px;
-	position: absolute;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
 }
-#one {
+#one{
   width: 1300px;
   height: 100px;
   position: absolute;
   left: 100px;
 }
-#two {
+#two{
   width: 100px;
   height: 700px;
   position: absolute;
   left: 1300px;
-}
-*/
-p {
-	text-align: center;
-}
-h1 {
-	text-align: center;
 }
 /*Animations*/
 
@@ -57,14 +49,4 @@ h1 {
 }
 #two {
   background-color: rgba(255,0,0,0.5);
-}
-a {
-	text-decoration: none !important;
-}
-p {
-	color: white;
-}
-h1 {
-	color: white;
-	font-size: 72px;
 }
