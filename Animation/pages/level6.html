@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Level 6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/master.css">
+	<link rel="stylesheet" href="../css/level6.css">
+	
+  </head>
+  <body>
+    <div class="platform-container">
+      <div class="platform-win"></div>
+	  <div class="platform-start" onmouseover="move()"></div>
+      <div class="platform" id="one"></div>
+	  <div class="platform" id="two"></div>
+    </div>
+	<p>
+		<button id="previous"><a href="level4.html">Previous Level</a></button>
+		<button id="next"><a href="level6.html">Next Level</a></button>
+	</p>
+	<p>
+		<button id="main"><a href="../index.html">Main Menu</a></button>
+	</p>
+
+    <script>
+		/* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
+		$('.platform').mouseleave(function(e) {
+			if($(e.relatedTarget).hasClass('platform-win')) {
+				alert("You win!");
+			} 
+			else if($(e.relatedTarget).hasClass('platform')) {
+				// do nothing
+			} 
+			else {
+				alert("You lose!");
+			}
+		});
+		
+    </script>
+  </body>
+</html>
