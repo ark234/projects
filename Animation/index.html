@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Platform</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+    <div class="platform-container">
+      <div class="platform-win" onmouseover="youWin(this)"></div>
+      <div class="platform" id="one" onmouseout="youLose(this)"></div>
+      <div class="platform" id="two" onmouseout="youLose(this)"></div>
+    </div>
+
+    <script>
+      $('.platform-win').hover(function() {
+        alert("You Win!");
+      });
+      $('.platform').hover(function() {
+        "hi", alert("You Lose!");
+      });
+
+    </script>
+  </body>
+</html>

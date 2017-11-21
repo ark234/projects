@@ -1,0 +1,39 @@
+/*Size & Positioning*/
+.platform-container {
+  width: 1400px; /* 16:9 resolution  */
+  height: 700px;
+  position: relative;
+}
+.platform-win {
+  width: 100px;
+  height: 100px;
+  left: 1300px;
+  top: 600px;
+  position: absolute;
+  z-index: 1;
+}
+#one{
+  width: 1300px;
+  height: 100px;
+  position: absolute;
+}
+#two{
+  width: 100px;
+  height: 700px;
+  position: absolute;
+  left: 1300px;
+}
+/*Animations*/
+
+
+
+/*Colors and Fonts*/
+.platform-container {
+  background-color: grey;
+}
+.platform-win {
+  background-color: green;
+}
+.platform {
+  background-color: yellow;
+}
