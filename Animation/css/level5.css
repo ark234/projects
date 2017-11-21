@@ -3,7 +3,6 @@
   width: 100px;
   height: 100px;
   position: absolute;
-  z-index: 1;
 }
 #one{
   width: 1400px;
@@ -11,6 +10,7 @@
   position: absolute;
   top: 350px;
   animation: spin 12s linear infinite;
+  overflow: hidden;
 }
 /*Animations*/
 @keyframes spin {
