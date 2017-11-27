@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Level 7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/master.css">
+	<link rel="stylesheet" href="../css/level7.css">
+
+  </head>
+  <body>
+    <!-- Platforms -->
+    <div class="platform-container">
+      <div class="platform-win"></div>
+	  <div class="platform-start" onmouseover="move()"></div>
+      <div class="platform" id="one"></div>
+      <div class="platform" id="two"></div>
+	  <div class="power-up" id="coffee"></div>
+    </div>
+
+    <!-- Nav Menu at the bottom of the screen -->
+    <nav>
+      <a href="level6.html"><button id="previous">Previous Level</button></a>
+      <a href="../index.html"><button id="main">Main Menu</button></a>
+    </nav>
+
+    <!-- Win and Lose Modals -->
+    <div class="modal" id="modal-win">
+      <div class="modal-content">
+        <p>You Win!</p>
+        <nav>
+          <a href="level7.html"><button id="next">Next Level</button></a>
+          <a href="../index.html"><button id="main">Main Menu</button></a>
+        </nav>
+      </div>
+    </div>
+    <div class="modal" id="modal-lose">
+      <div class="modal-content">
+        <p>You Lose!</p>
+        <nav>
+          <a href="level7.html"><button id="retry">Retry</button></a>
+          <a href="../index.html"><button id="main">Main Menu</button></a>
+        </nav>
+      </div>
+    </div>
+
+  <script>
+  var modalWin = document.getElementById("modal-win");
+  var modalLose = document.getElementById("modal-lose");
+  var coffee = document.getElementById("coffee");
+  var live = false;		// This forces player to start at start platform
+  var container = document.getElementsByClassName("platform-container")[0];
+  var p2 = document.getElementById("two");
+  
+  /************************************************************
+                          HOVER LOGIC
+  ************************************************************/
+
+  /* Game starts when you hover over the start platform  */
+  $(".platform-start").mouseenter(function(event) {
+    live = true;
+	container.style.cursor = "crosshair";
+  });
+  
+  /* If you hover off of start platform not onto another platform, you lose  */
+  $(".platform-start").mouseleave(function(event) {
+    if(!$(event.relatedTarget).hasClass("platform")) {
+      modalLose.style.display = "block";
+      container.style.cursor = "default";
+    }
+  });
+  
+  $(".platform").mouseenter(function(event) {
+    if($(event.relatedTarget).hasClass("platform-start") ||
+	   $(event.relatedTarget).hasClass("platform") ||
+	   $(event.relatedTarget).hasClass("power-up")) {
+      // do nothing
+    } else {
+      live = false;
+      container.style.cursor = "default";
+    }
+  });
+
+  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
+  $(".platform").mouseleave(function(event) {
+    if($(event.relatedTarget).hasClass("platform-win")) {
+      if (live) {
+        modalWin.style.display = "block";
+        container.style.cursor = "default";
+      }
+    } 
+	else if($(event.relatedTarget).hasClass("platform") ||
+			  $(event.relatedTarget).hasClass("platform-start") ||
+			  $(event.relatedTarget).hasClass("power-up")) {
+      // do nothing
+    } 
+	/*
+	else if($(event.relatedTarget).hasClass("power-up")) {
+      if (live) {
+		container.style.background-color = "brown";
+		coffee.style.display = "none";
+		p2.style.animation = "spin 12s linear infinite";
+	  }
+    } 
+	*/
+	else {
+      if (live) {
+        modalLose.style.display = "block";
+        container.style.cursor = "default";
+      }
+      live = false;
+    }
+  });
+  
+  /* Power Up Logic */
+  $(".power-up").mouseenter(function(event) {
+    if(live) {
+		container.style.backgroundColor = "rgba(234,123,23,0.5)";
+		coffee.style.display = "none";
+		p2.style.animation = "spin 12s linear infinite";
+	}
+  });
+
+  /************************************************************
+                          JS ANIMATIONS
+  ************************************************************/
+
+	function move() {
+		var platformOne = document.getElementById("one");
+		var platformTwo = document.getElementById("two");
+		var pos = 0;
+		var posOne = 0;
+		var interval = setInterval(frame, 5);
+
+		function frame() {
+			pos++;
+
+			if(pos <= 500) {
+				posOne++;
+				platformOne.style.top = `${posOne}px`;
+			}
+			else if(pos <= 1000) {
+				posOne--;
+				platformOne.style.top = `${posOne}px`;
+			}
+		}
+	}
+
+    </script>
+  </body>
+</html>

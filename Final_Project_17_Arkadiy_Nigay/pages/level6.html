@@ -28,7 +28,7 @@
       <div class="modal-content">
         <p>You Win!</p>
         <nav>
-          <a href="level6.html"><button id="next">Next Level</button></a>
+          <a href="level7.html"><button id="next">Next Level</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
         </nav>
       </div>
@@ -49,7 +49,7 @@
     var live = false; // this will ensure players start at .platform-start
     var cursor = document.getElementsByClassName("platform-container")[0];
 
-  /* .platform on-hover effects */
+	/* .platform on-hover effects */
     $(".platform").mouseenter(function(event) {
       if($(event.relatedTarget).hasClass("platform-start")) {
         live = true;

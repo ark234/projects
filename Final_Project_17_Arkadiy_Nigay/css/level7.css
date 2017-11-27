@@ -1,0 +1,55 @@
+/************************************************************
+                        SIZE & POSITIONING
+  ************************************************************/
+#one {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+#two {
+  width: 1400px;
+  height: 100px;
+  position: absolute;
+  top: 350px;
+  left: 50px;
+  animation: spin 1s linear infinite;
+  overflow: hidden;
+}
+#coffee {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 75px;
+	top: 600px;
+	background-image: url("../images/coffee.png");
+	background-size: cover;
+	
+}
+/************************************************************
+                          CSS ANIMATIONS
+  ************************************************************/
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+
+/************************************************************
+                        COLORS & FONTS
+  ************************************************************/
+.platform-start {
+	background-color: rgba(255,255,0,1);
+}
+#one {
+  background-color: rgba(255,0,0,0.5);
+}
+#two {
+  background-color: rgba(255,0,0,0.5);
+}
+#coffee {
+	border: 1px solid brown;
+}
