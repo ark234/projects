@@ -2,25 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Level 7</title>
+    <title>Level 8</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/master.css">
-	<link rel="stylesheet" href="../css/level7.css">
+	<link rel="stylesheet" href="../css/level8.css">
 
   </head>
   <body>
     <!-- Platforms -->
     <div class="platform-container">
       <div class="platform-win"></div>
-	  <div class="platform-start" onmouseover="move()"></div>
-      <div class="platform" id="one"></div>
-      <div class="platform" id="two"></div>
-	  <div class="power-up" id="coffee"></div>
+	  <div class="platform-start"></div>
+      <div class="platform" id="bus-one"></div>
+      <div class="platform" id="bus-two"></div>
+	  <div class="platform" id="one"></div>
+	  <div class="platform" id="two"></div>
+	  <div class="platform" id="two"></div>
+	  <div class="obstacle" id="html"></div>
+	  <div class="obstacle" id="css"></div>
+	  <div class="obstacle" id="js"></div>
     </div>
 
     <!-- Nav Menu at the bottom of the screen -->
     <nav>
-      <a href="level6.html"><button id="previous">Previous Level</button></a>
+      <a href="level7.html"><button id="previous">Previous Level</button></a>
       <a href="../index.html"><button id="main">Main Menu</button></a>
     </nav>
 
@@ -29,7 +34,7 @@
       <div class="modal-content">
         <p>You Win!</p>
         <nav>
-          <a href="level8.html"><button id="next">Next Level</button></a>
+          <a href="level9.html"><button id="next">Next Level</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
         </nav>
       </div>
@@ -38,7 +43,7 @@
       <div class="modal-content">
         <p>You Lose!</p>
         <nav>
-          <a href="level7.html"><button id="retry">Retry</button></a>
+          <a href="level8.html"><button id="retry">Retry</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
         </nav>
       </div>
@@ -47,7 +52,6 @@
   <script>
   var modalWin = document.getElementById("modal-win");
   var modalLose = document.getElementById("modal-lose");
-  var coffee = document.getElementById("coffee");
   var live = false;		// This forces player to start at start platform
   var container = document.getElementsByClassName("platform-container")[0];
   var p2 = document.getElementById("two");

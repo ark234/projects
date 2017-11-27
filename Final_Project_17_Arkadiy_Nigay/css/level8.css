@@ -1,0 +1,85 @@
+/************************************************************
+                        SIZE & POSITIONING
+  ************************************************************/
+#bus-one {
+	width: 360px;
+	height: 100px;
+	position: absolute;
+	left: 100px;
+	background-image: url("../images/bus_right.png");
+	background-size: cover;
+}
+#bus-two {
+	width: 360px;
+	height: 100px;
+	position: absolute;
+	left: 1040px;
+	top: 100px;
+	background-image: url("../images/bus_left.png");
+	background-size: cover;
+}
+#one {
+  width: 200px;
+  height: 500px;
+  position: absolute;
+  top: 200px;
+}
+#two {
+  width: 1400px;
+  height: 100px;
+  position: absolute;
+  top: 600px;
+}
+#html {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	left: 400px;
+	top: 300px;
+	background-image: url("../images/html.png");
+	background-size: cover;
+	animation: stomp 5s infinite;
+}
+#css {
+	width: 150px;
+	height: 75px;
+	position: absolute;
+	left: 625px;
+	top: 275px;
+	background-image: url("../images/css.png");
+	background-size: cover;
+	animation: stomp 4s infinite;
+}
+#js {
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	left: 900px;
+	top: 250px;
+	background-image: url("../images/js.png");
+	background-size: cover;
+	animation: stomp 3s infinite;
+}
+
+/************************************************************
+                          CSS ANIMATIONS
+  ************************************************************/
+@keyframes stomp {
+	50% {
+		transform: translateY(350px);
+	}
+}
+
+
+/************************************************************
+                        COLORS & FONTS
+  ************************************************************/
+.platform-start {
+	background-color: rgba(255,255,0,1);
+}
+#one {
+  background-color: rgba(255,0,0,0.5);
+}
+#two {
+  background-color: rgba(255,0,0,0.5);
+}
