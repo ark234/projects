@@ -46,16 +46,19 @@
   var modalWin = document.getElementById("modal-win");
   var modalLose = document.getElementById("modal-lose");
   var live = false;
+  var cursor = document.getElementsByClassName("platform-container")[0];
 
   $(".platform").mouseenter(function(event) {
     if($(event.relatedTarget).hasClass("platform-start")) {
       live = true;
+      cursor.style.cursor = "crosshair";
     } else if($(event.relatedTarget).hasClass("platform")) {
       if (live) {
         // do nothing
       }
     } else {
       live = false;
+      cursor.style.cursor = "default";
     }
   });
 
@@ -72,6 +75,7 @@
         modalLose.style.display = "block";
       }
       live = false;
+      cursor.style.cursor = "default";
     }
   });
 
@@ -79,6 +83,7 @@
   $(".platform-start").mouseleave(function(event) {
     if(!$(event.relatedTarget).hasClass("platform")) {
       modalLose.style.display = "block";
+      cursor.style.cursor = "default";
     }
   });
 

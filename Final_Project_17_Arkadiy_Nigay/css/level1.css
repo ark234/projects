@@ -1,4 +1,11 @@
 /*Size & Positioning*/
+.platform-win {
+  width: 90px;
+  height: 90px;
+  left: 1305px;
+  top: 5px !important;
+  position: absolute;
+}
 #one{
   width: 1300px;
   height: 100px;

@@ -5,11 +5,13 @@
   position: relative;
   margin: 10px auto;
   overflow: hidden;
+  cursor: default;
 }
 .platform-start {
   width: 100px;
   height: 100px;
   position: absolute;
+  z-index: 1;
 }
 .platform-win {
   width: 90px;

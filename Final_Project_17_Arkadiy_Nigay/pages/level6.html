@@ -47,17 +47,20 @@
     var modalWin = document.getElementById("modal-win");
     var modalLose = document.getElementById("modal-lose");
     var live = false; // this will ensure players start at .platform-start
+    var cursor = document.getElementsByClassName("platform-container")[0];
 
   /* .platform on-hover effects */
     $(".platform").mouseenter(function(event) {
       if($(event.relatedTarget).hasClass("platform-start")) {
         live = true;
+        cursor.style.cursor = "crosshair";
       } else if($(event.relatedTarget).hasClass("platform")) {
         if (live) {
           // do nothing
         }
       } else {
         live = false;
+        cursor.style.cursor = "default";
       }
     });
 
@@ -75,13 +78,15 @@
           modalLose.style.display = "block";
         }
         live = false;
+        cursor.style.cursor = "default";
       }
     });
 
-    /* Whenever you hover onto platform-start, js animation will be kicked off  */
+    /* Auto lose if hovering off .platform-start not onto .platform  */
     $(".platform-start").mouseleave(function(event) {
       if(!$(event.relatedTarget).hasClass("platform")) {
         modalLose.style.display = "block";
+        cursor.style.cursor = "default";
       }
     });
 
