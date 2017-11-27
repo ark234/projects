@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Level 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/master.css">
+	<link rel="stylesheet" href="../css/level5.css">
+
+  </head>
+  <body>
+    <!-- Platforms -->
+    <div class="platform-container">
+      <div class="platform-win"></div>
+	    <div class="platform-start" onmouseover="move()"></div>
+      <div class="platform" id="one"></div>
+    </div>
+
+    <!-- Nav Menu at the bottom of the screen -->
+    <nav>
+      <a href="level4.html"><button id="previous">Previous Level</button></a>
+      <a href="../index.html"><button id="main">Main Menu</button></a>
+    </nav>
+
+    <!-- Win and Lose Modals -->
+    <div class="modal" id="modal-win">
+      <div class="modal-content">
+        <p>You Win!</p>
+        <nav>
+          <a href="level6.html"><button id="next">Next Level</button></a>
+          <a href="../index.html"><button id="main">Main Menu</button></a>
+        </nav>
+      </div>
+    </div>
+    <div class="modal" id="modal-lose">
+      <div class="modal-content">
+        <p>You Lose!</p>
+        <nav>
+          <a href="level5.html"><button id="retry">Retry</button></a>
+          <a href="../index.html"><button id="main">Main Menu</button></a>
+        </nav>
+      </div>
+    </div>
+
+  <script>
+  var modalWin = document.getElementById("modal-win");
+  var modalLose = document.getElementById("modal-lose");
+  var live = false;
+
+  $(".platform").mouseenter(function(event) {
+    if($(event.relatedTarget).hasClass("platform-start")) {
+      live = true;
+    } else if($(event.relatedTarget).hasClass("platform")) {
+      if (live) {
+        // do nothing
+      }
+    } else {
+      live = false;
+    }
+  });
+
+  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
+  $(".platform").mouseleave(function(event) {
+    if($(event.relatedTarget).hasClass("platform-win")) {
+      if (live) {
+        modalWin.style.display = "block";
+      }
+    } else if($(event.relatedTarget).hasClass("platform")) {
+      // do nothing
+    } else {
+      if (live) {
+        modalLose.style.display = "block";
+      }
+      live = false;
+    }
+  });
+
+  /* Whenever you hover onto platform-start, js animation will be kicked off  */
+  $(".platform-start").mouseleave(function(event) {
+    if(!$(event.relatedTarget).hasClass("platform")) {
+      modalLose.style.display = "block";
+    }
+  });
+
+    </script>
+  </body>
+</html>
