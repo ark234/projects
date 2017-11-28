@@ -1,0 +1,137 @@
+/************************************************************
+                        SIZE & POSITIONING
+  ************************************************************/
+#bus-one {
+	width: 360px;
+	height: 100px;
+	position: absolute;
+	left: 100px;
+	background-image: url("../images/bus_right.png");
+	background-size: cover;
+	/* animation: ride 12s linear forwards; */
+}
+#one {
+  width: 100px;
+  height: 700px;
+  position: absolute;
+}
+#two {
+  width: 100px;
+  height: 250px;
+  position: absolute;
+  left: 650px;
+  animation: spin 10s linear infinite;
+}
+#html {
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	left: 400px;
+	top: 400px;
+	background-image: url("../images/html_grad.png");
+	background-size: cover;
+	animation: drop 2s ease-out forwards;
+}
+#css {
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	left: 600px;
+	top: 350px;
+	background-image: url("../images/css_grad.png");
+	background-size: cover;
+	animation: drop 2s ease-out forwards;
+}
+#js {
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	left: 800px;
+	top: 300px;
+	background-image: url("../images/js_grad.png");
+	background-size: cover;
+	animation: drop 2s ease-out forwards;
+}
+#move-friends {
+	position: absolute;
+	width: 400px;
+	height: 150px;
+	top: 550px;
+}
+.platform-win {
+  width: 200px !important;
+  height: 200px !important;
+  left: 1200px !important;
+  top: 500px !important;
+}
+#html-wrapper {
+	animation: bounce 1s 1s infinite;
+}
+#css-wrapper {
+	animation: bounce 1.5s 1s infinite;
+}
+#js-wrapper {
+	animation: bounce 2s 1s infinite;
+}
+.modal {
+  padding-top: 150px !important;
+}
+.modal-content {
+  margin: 0 auto;
+  width: 50%;
+}
+/************************************************************
+                          CSS ANIMATIONS
+  ************************************************************/
+@keyframes drop {
+	100% {
+		transform: translateY(200px);
+	}
+}
+@keyframes ride {
+	33% {
+		transform: translateX(940px);
+	}
+	66% {
+		transform: translateY(520px) translateX(-70px) rotate(20deg);
+	}
+	100% {
+		transform: translateX(940px) translateY(600px);
+	}
+}
+@keyframes bounce {
+	50% {
+		transform: translateY(-15px);
+	}
+}
+@keyframes move-html {
+	100% {
+		transform: translateX(800px);
+		opacity: 0;
+	}
+}
+@keyframes move-css {
+	100% {
+		transform: translateX(525px);
+		opacity: 0;
+	}
+}
+@keyframes move-js {
+	100% {
+		transform: translateX(250px);
+		opacity: 0;
+	}
+}
+
+/************************************************************
+                        COLORS & FONTS
+  ************************************************************/
+.platform-start {
+	background-color: rgba(255,255,0,1);
+}
+#one {
+  background-color: rgba(255,0,0,0.5);
+}
+#two {
+  background-color: rgba(255,0,0,0.5);
+}

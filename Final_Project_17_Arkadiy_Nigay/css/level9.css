@@ -1,0 +1,94 @@
+/************************************************************
+                        SIZE & POSITIONING
+  ************************************************************/
+#bus-one {
+	width: 360px;
+	height: 100px;
+	position: absolute;
+	top: 600px;
+	left: 100px;
+	background-image: url("../images/bus_right.png");
+	background-size: cover;
+}
+#one {
+  width: 100px;
+  height: 700px;
+  position: absolute;
+}
+#two {
+  width: 100px;
+  height: 250px;
+  position: absolute;
+  left: 650px;
+  animation: spin 10s linear infinite;
+}
+#coffee {
+	width: 75px;
+	height: 75px;
+	position: absolute;
+	left: 1300px;
+	top: 25px;
+	background-image: url("../images/coffee.png");
+	background-size: cover;
+	
+}
+#html {
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	left: 500px;
+	top: 300px;
+	background-image: url("../images/html.png");
+	background-size: cover;
+	animation: stomp 2s ease-out infinite;
+}
+#css {
+	width: 150px;
+	height: 75px;
+	position: absolute;
+	left: 725px;
+	top: 275px;
+	background-image: url("../images/css.png");
+	background-size: cover;
+	animation: stomp 1s ease-out infinite;
+}
+#js {
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	left: 1000px;
+	top: 250px;
+	background-image: url("../images/js.png");
+	background-size: cover;
+	animation: stomp 0.5s ease-out infinite;
+}
+
+/************************************************************
+                          CSS ANIMATIONS
+  ************************************************************/
+@keyframes stomp {
+	50% {
+		transform: translateY(350px);
+	}
+}
+@keyframes spin {
+	25% {
+		transform: translateX(-600px) rotate(-275deg);
+	}
+	75% {
+		transform: translateX(600px) rotate(275deg);
+	}
+}
+
+/************************************************************
+                        COLORS & FONTS
+  ************************************************************/
+.platform-start {
+	background-color: rgba(255,255,0,1);
+}
+#one {
+  background-color: rgba(255,0,0,0.5);
+}
+#two {
+  background-color: rgba(255,0,0,0.5);
+}

@@ -20,6 +20,7 @@
   top: 605px;
   position: absolute;
   z-index: 1;
+  background-color: rgba(255,255,255,0.7);
 }
 nav {
   display: flex;
@@ -79,10 +80,10 @@ h1 {
 	font-size: 72px;
 }
 #modal-win {
-  background-color: rgba(0, 255, 0, 0.3);
+  background-color: rgba(0, 255, 0, 0.5);
 }
 #modal-lose {
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.5);
 }
 .modal-content {
   border: 1px solid lightyellow;

@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Level 8</title>
+    <title>Level 10</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/master.css">
-	<link rel="stylesheet" href="../css/level8.css">
+	<link rel="stylesheet" href="../css/level10.css">
 
   </head>
   <body>
@@ -14,26 +14,23 @@
       <div class="platform-win"></div>
       <div class="platform-start"></div>
       <div class="platform" id="bus-one"></div>
-      <div class="platform" id="bus-two"></div>
-      <div class="platform" id="one"></div>
-      <div class="platform" id="two"></div>
-      <div class="obstacle" id="html"></div>
-      <div class="obstacle" id="css"></div>
-      <div class="obstacle" id="js"></div>
+	  <div class="platform" id="move-friends"></div>
+      <div id="html-wrapper"><div class="friend" id="html"></div></div>
+      <div id="css-wrapper"><div class="friend" id="css"></div></div>
+      <div id="js-wrapper"><div class="friend" id="js"></div></div>
     </div>
 
     <!-- Nav Menu at the bottom of the screen -->
     <nav>
-      <a href="level7.html"><button id="previous">Previous Level</button></a>
+      <a href="level9.html"><button id="previous">Previous Level</button></a>
       <a href="../index.html"><button id="main">Main Menu</button></a>
     </nav>
 
     <!-- Win and Lose Modals -->
     <div class="modal" id="modal-win">
       <div class="modal-content">
-        <p>You Win!</p>
+        <p>Congratulations! HTML, CSS, and JS are your friends now. Have fun with them on your next journey at GA!</p>
         <nav>
-          <a href="level9.html"><button id="next">Next Level</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
         </nav>
       </div>
@@ -42,7 +39,7 @@
       <div class="modal-content">
         <p>You Lose!</p>
         <nav>
-          <a href="level8.html"><button id="retry">Retry</button></a>
+          <a href="level10.html"><button id="retry">Retry</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
         </nav>
       </div>
@@ -52,8 +49,14 @@
   var modalWin = document.getElementById("modal-win");
   var modalLose = document.getElementById("modal-lose");
   var live = false;		// This forces player to start at start platform
-  var container = document.getElementsByClassName("platform-container")[0];
-  var p2 = document.getElementById("two");
+  var container = document.getElementsByClassName("platform-container")[0]; 
+  var html = document.getElementById("html");
+  var css = document.getElementById("css");
+  var js = document.getElementById("js");
+  var htmlWrapper = document.getElementById("html-wrapper");
+  var cssWrapper = document.getElementById("css-wrapper");
+  var jsWrapper = document.getElementById("js-wrapper");
+  var bus = document.getElementById("bus-one");
   
   /************************************************************
                           HOVER LOGIC
@@ -73,17 +76,11 @@
     }
   });
 
-  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
+  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform OR .platform-start, OR .power-up, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
   $(".platform").mouseleave(function(event) {
-    if($(event.relatedTarget).hasClass("platform-win")) {
-      if (live) {
-        modalWin.style.display = "block";
-        container.style.cursor = "default";
-      }
-    } 
-	else if($(event.relatedTarget).hasClass("platform") ||
+    if($(event.relatedTarget).hasClass("platform") ||
 			  $(event.relatedTarget).hasClass("platform-start") ||
-			  $(event.relatedTarget).hasClass("power-up")) {
+			  $(event.relatedTarget).hasClass("friend")) {
       // do nothing
     } 
 	else {
@@ -91,57 +88,44 @@
         modalLose.style.display = "block";
         container.style.cursor = "default";
       }
-      live = false;
+    live = false;
     }
   });
   
-  /* #bus-one logic */
+  /* Show winning modal upon reaching .platform-win  */
+  $(".platform-win").mouseenter(function(event) {
+    if(live) {
+		modalWin.style.display = "block";
+        container.style.cursor = "default";
+	}
+  });
+  
+  /* if live == true, kick-off bus-one animation */
   $("#bus-one").mouseenter(function() {
     if(live) {
-		  move1();
+		  bus.style.animation = "ride 12s linear forwards";
 	  }
   });
-  /* #bus-two logic */
-  $("#bus-two").mouseenter(function() {
+  
+  /* if cursor touches html-grad, kick off slide animation */
+  $("#html").mouseenter(function() {
     if(live) {
-      move2();
-    }
+		  bus.style.animation = "ride 20s linear forwards";
+	  }
+  });
+  
+  /* if cursor touches move-friends, kick off slide animation for friend elements*/
+  $("#move-friends").mouseenter(function() {
+    if(live) {
+		  htmlWrapper.style.animation = "move-html 2s linear forwards";
+		  cssWrapper.style.animation = "move-css 1.5s 1s linear forwards";
+		  jsWrapper.style.animation = "move-js 1s 2s linear forwards";
+	  }
   });
 
   /************************************************************
                           JS ANIMATIONS
   ************************************************************/
-
-	function move1() {
-		var bus1 = document.getElementById("bus-one");
-		var pos = 100;
-		var interval = setInterval(frame, 5);
-
-		function frame() {
-			pos++;
-
-			if(pos <= 1040) {
-				bus1.style.left = `${pos}px`;
-			} else {
-        clearInterval(interval);
-      }
-		}
-	}
-  function move2() {
-    var bus2 = document.getElementById("bus-two");
-    var pos = 1040;
-    var interval = setInterval(frame, 5);
-
-    function frame() {
-      pos--;
-
-      if(pos >= 0) {
-        bus2.style.left = `${pos}px`;
-      } else {
-        clearInterval(interval);
-      }
-    }
-  }
 
     </script>
   </body>

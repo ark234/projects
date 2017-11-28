@@ -69,17 +69,6 @@
       container.style.cursor = "default";
     }
   });
-  
-  $(".platform").mouseenter(function(event) {
-    if($(event.relatedTarget).hasClass("platform-start") ||
-	   $(event.relatedTarget).hasClass("platform") ||
-	   $(event.relatedTarget).hasClass("power-up")) {
-      // do nothing
-    } else {
-      live = false;
-      container.style.cursor = "default";
-    }
-  });
 
   /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
   $(".platform").mouseleave(function(event) {
