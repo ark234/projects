@@ -12,15 +12,15 @@
     <!-- Platforms -->
     <div class="platform-container">
       <div class="platform-win"></div>
-	  <div class="platform-start"></div>
+      <div class="platform-start"></div>
       <div class="platform" id="bus-one"></div>
       <div class="platform" id="bus-two"></div>
-	  <div class="platform" id="one"></div>
-	  <div class="platform" id="two"></div>
-	  <div class="platform" id="two"></div>
-	  <div class="obstacle" id="html"></div>
-	  <div class="obstacle" id="css"></div>
-	  <div class="obstacle" id="js"></div>
+      <div class="platform" id="one"></div>
+      <div class="platform" id="two"></div>
+      <div class="platform" id="two"></div>
+      <div class="obstacle" id="html"></div>
+      <div class="obstacle" id="css"></div>
+      <div class="obstacle" id="js"></div>
     </div>
 
     <!-- Nav Menu at the bottom of the screen -->
@@ -34,7 +34,7 @@
       <div class="modal-content">
         <p>You Win!</p>
         <nav>
-          <a href="level9.html"><button id="next">Next Level</button></a>
+          <a href="level8.html"><button id="next">Next Level</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
         </nav>
       </div>
@@ -107,39 +107,53 @@
     }
   });
   
-  /* Power Up Logic */
-  $(".power-up").mouseenter(function(event) {
+  /* #bus-one logic */
+  $("#bus-one").mouseenter(function() {
     if(live) {
-		container.style.backgroundColor = "rgba(234,123,23,0.5)";
-		coffee.style.display = "none";
-		p2.style.animation = "spin 12s linear infinite";
-	}
+		  move1();
+	  }
+  });
+  /* #bus-two logic */
+  $("#bus-two").mouseenter(function() {
+    if(live) {
+      move2();
+    }
   });
 
   /************************************************************
                           JS ANIMATIONS
   ************************************************************/
 
-	function move() {
-		var platformOne = document.getElementById("one");
-		var platformTwo = document.getElementById("two");
-		var pos = 0;
-		var posOne = 0;
+	function move1() {
+		var bus1 = document.getElementById("bus-one");
+		var pos = 100;
 		var interval = setInterval(frame, 5);
 
 		function frame() {
 			pos++;
 
-			if(pos <= 500) {
-				posOne++;
-				platformOne.style.top = `${posOne}px`;
-			}
-			else if(pos <= 1000) {
-				posOne--;
-				platformOne.style.top = `${posOne}px`;
-			}
+			if(pos <= 1040) {
+				bus1.style.left = `${pos}px`;
+			} else {
+        clearInterval(interval);
+      }
 		}
 	}
+  function move2() {
+    var bus2 = document.getElementById("bus-two");
+    var pos = 1040;
+    var interval = setInterval(frame, 5);
+
+    function frame() {
+      pos--;
+
+      if(pos >= 0) {
+        bus2.style.left = `${pos}px`;
+      } else {
+        clearInterval(interval);
+      }
+    }
+  }
 
     </script>
   </body>
