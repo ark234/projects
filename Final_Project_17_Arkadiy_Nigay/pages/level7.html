@@ -27,7 +27,7 @@
     <!-- Win and Lose Modals -->
     <div class="modal" id="modal-win">
       <div class="modal-content">
-        <p>You Win!</p>
+        <h1>You Win!</h1>
         <nav>
           <a href="level8.html"><button id="next">Next Level</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
@@ -36,7 +36,7 @@
     </div>
     <div class="modal" id="modal-lose">
       <div class="modal-content">
-        <p>You Lose!</p>
+        <h1>You Lose!</h1>
         <nav>
           <a href="level7.html"><button id="retry">Retry</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
@@ -44,67 +44,35 @@
       </div>
     </div>
 
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="explosion" src="../images/explosion.mp4" poster="../images/explosion.jpg" type="video/mp4" autoplay loop muted></video>
+
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="fireworks" src="../images/fireworks.mp4" poster="../images/fireworks.jpg" type="video/mp4" autoplay loop muted></video>
+
+    <!-- This js file contains mouse hover logic -->
+    <script type="text/javascript" src="../js/hover.js"></script>
+
   <script>
-  var modalWin = document.getElementById("modal-win");
-  var modalLose = document.getElementById("modal-lose");
-  var coffee = document.getElementById("coffee");
-  var live = false;		// This forces player to start at start platform
-  var container = document.getElementsByClassName("platform-container")[0];
   var p2 = document.getElementById("two");
-  
   /************************************************************
                           HOVER LOGIC
   ************************************************************/
 
-  /* Game starts when you hover over the start platform  */
-  $(".platform-start").mouseenter(function(event) {
-    live = true;
-	container.style.cursor = "crosshair";
-  });
-  
-  /* If you hover off of start platform not onto another platform, you lose  */
-  $(".platform-start").mouseleave(function(event) {
-    if(!$(event.relatedTarget).hasClass("platform")) {
-      modalLose.style.display = "block";
-      container.style.cursor = "default";
-    }
-  });
-
-  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
-  $(".platform").mouseleave(function(event) {
-    if($(event.relatedTarget).hasClass("platform-win")) {
-      if (live) {
-        modalWin.style.display = "block";
-        container.style.cursor = "default";
-      }
-    } 
-	else if($(event.relatedTarget).hasClass("platform") ||
-			  $(event.relatedTarget).hasClass("platform-start") ||
-			  $(event.relatedTarget).hasClass("power-up")) {
-      // do nothing
-    } 
-	else {
-      if (live) {
-        modalLose.style.display = "block";
-        container.style.cursor = "default";
-      }
-      live = false;
-    }
-  });
-  
   /* Power Up Logic */
   $(".power-up").mouseenter(function(event) {
     if(live) {
-		container.style.backgroundColor = "rgba(234,123,23,0.5)";
-		coffee.style.display = "none";
-		p2.style.animation = "spin 12s linear infinite";
-	}
+    document.body.style.backgroundColor = "rgba(234,123,23,0.5)";
+    coffee.style.display = "none";
+    p2.style.animation = "spin 12s linear infinite";
+  }
   });
 
   /************************************************************
                           JS ANIMATIONS
   ************************************************************/
 
+  /* slide the platform down 500px, then up 500px */
 	function move() {
 		var platformOne = document.getElementById("one");
 		var platformTwo = document.getElementById("two");

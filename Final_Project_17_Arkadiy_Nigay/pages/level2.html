@@ -26,7 +26,7 @@
     <!-- Win and Lose Modals -->
     <div class="modal" id="modal-win">
       <div class="modal-content">
-        <p>You Win!</p>
+        <h1>You Win!</h1>
         <nav>
           <a href="level3.html"><button id="next">Next Level</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
@@ -35,7 +35,7 @@
     </div>
     <div class="modal" id="modal-lose">
       <div class="modal-content">
-        <p>You Lose!</p>
+        <h1>You Lose!</h1>
         <nav>
           <a href="level2.html"><button id="retry">Retry</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
@@ -43,51 +43,12 @@
       </div>
     </div>
 
-  <script>
-  var modalWin = document.getElementById("modal-win");
-  var modalLose = document.getElementById("modal-lose");
-  var live = false;
-  var cursor = document.getElementsByClassName("platform-container")[0];
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="explosion" src="../images/explosion.mp4" poster="../images/explosion.jpg" type="video/mp4" autoplay loop muted></video>
 
-  $(".platform").mouseenter(function(event) {
-    if($(event.relatedTarget).hasClass("platform-start")) {
-      live = true;
-      cursor.style.cursor = "crosshair";
-    } else if($(event.relatedTarget).hasClass("platform")) {
-      if (live) {
-        // do nothing
-      }
-    } else {
-      live = false;
-      cursor.style.cursor = "default";
-    }
-  });
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="fireworks" src="../images/fireworks.mp4" poster="../images/fireworks.jpg" type="video/mp4" autoplay loop muted></video>
 
-  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
-  $(".platform").mouseleave(function(event) {
-    if($(event.relatedTarget).hasClass("platform-win")) {
-      if (live) {
-        modalWin.style.display = "block";
-        cursor.style.cursor = "default";
-      }
-    } else if($(event.relatedTarget).hasClass("platform")) {
-      // do nothing
-    } else {
-      if (live) {
-        modalLose.style.display = "block";
-        cursor.style.cursor = "default";
-      }
-      live = false;
-    }
-  });
-
-  $(".platform-start").mouseleave(function(event) {
-    if(!$(event.relatedTarget).hasClass("platform")) {
-      modalLose.style.display = "block";
-      cursor.style.cursor = "default";
-    }
-  });
-
-  </script>
+    <script type="text/javascript" src="../js/hover.js"></script>
   </body>
 </html>

@@ -14,7 +14,7 @@
       <div class="platform-win"></div>
       <div class="platform-start"></div>
       <div class="platform" id="bus-one"></div>
-	  <div class="platform" id="move-friends"></div>
+      <div class="platform" id="move-friends"></div>
       <div id="html-wrapper"><div class="friend" id="html"></div></div>
       <div id="css-wrapper"><div class="friend" id="css"></div></div>
       <div id="js-wrapper"><div class="friend" id="js"></div></div>
@@ -29,15 +29,15 @@
     <!-- Win and Lose Modals -->
     <div class="modal" id="modal-win">
       <div class="modal-content">
-        <p>Congratulations! HTML, CSS, and JS are your friends now. Have fun with them on your next journey at GA!</p>
+        <h1>You Win!</h1>
         <nav>
-          <a href="../index.html"><button id="main">Main Menu</button></a>
+          <a href="../index.html"><button id="main">Continue</button></a>
         </nav>
       </div>
     </div>
     <div class="modal" id="modal-lose">
       <div class="modal-content">
-        <p>You Lose!</p>
+        <h1>You Lose!</h1>
         <nav>
           <a href="level10.html"><button id="retry">Retry</button></a>
           <a href="../index.html"><button id="main">Main Menu</button></a>
@@ -45,11 +45,16 @@
       </div>
     </div>
 
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="explosion" src="../images/explosion.mp4" poster="../images/explosion.jpg" type="video/mp4" autoplay loop muted></video>
+
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="fireworks" src="../images/fireworks.mp4" poster="../images/fireworks.jpg" type="video/mp4" autoplay loop muted></video>
+
+    <!-- This js file contains mouse hover logic -->
+    <script type="text/javascript" src="../js/hover.js"></script>
+
   <script>
-  var modalWin = document.getElementById("modal-win");
-  var modalLose = document.getElementById("modal-lose");
-  var live = false;		// This forces player to start at start platform
-  var container = document.getElementsByClassName("platform-container")[0]; 
   var html = document.getElementById("html");
   var css = document.getElementById("css");
   var js = document.getElementById("js");
@@ -57,63 +62,25 @@
   var cssWrapper = document.getElementById("css-wrapper");
   var jsWrapper = document.getElementById("js-wrapper");
   var bus = document.getElementById("bus-one");
-  
+
   /************************************************************
                           HOVER LOGIC
   ************************************************************/
 
-  /* Game starts when you hover over the start platform  */
-  $(".platform-start").mouseenter(function(event) {
-    live = true;
-	container.style.cursor = "crosshair";
-  });
-  
-  /* If you hover off of start platform not onto another platform, you lose  */
-  $(".platform-start").mouseleave(function(event) {
-    if(!$(event.relatedTarget).hasClass("platform")) {
-      modalLose.style.display = "block";
-      container.style.cursor = "default";
-    }
-  });
-
-  /* Whenever you hover off .platform elements, it will check if the element you're hovering onto (related target) is .platform-win, in which case you win. If you hover from .platform to .platform OR .platform-start, OR .power-up, then nothing will happen. If you hover onto something other than .platform or .platform-win, you lose. */
-  $(".platform").mouseleave(function(event) {
-    if($(event.relatedTarget).hasClass("platform") ||
-			  $(event.relatedTarget).hasClass("platform-start") ||
-			  $(event.relatedTarget).hasClass("friend")) {
-      // do nothing
-    } 
-	else {
-      if (live) {
-        modalLose.style.display = "block";
-        container.style.cursor = "default";
-      }
-    live = false;
-    }
-  });
-  
-  /* Show winning modal upon reaching .platform-win  */
-  $(".platform-win").mouseenter(function(event) {
-    if(live) {
-		modalWin.style.display = "block";
-        container.style.cursor = "default";
-	}
-  });
-  
   /* if live == true, kick-off bus-one animation */
   $("#bus-one").mouseenter(function() {
     if(live) {
 		  bus.style.animation = "ride 12s linear forwards";
 	  }
   });
-  
+
   /* if cursor touches html-grad, kick off slide animation */
   $("#html").mouseenter(function() {
     if(live) {
 		  bus.style.animation = "ride 20s linear forwards";
 	  }
   });
-  
+
   /* if cursor touches move-friends, kick off slide animation for friend elements*/
   $("#move-friends").mouseenter(function() {
     if(live) {
@@ -122,10 +89,6 @@
 		  jsWrapper.style.animation = "move-js 1s 2s linear forwards";
 	  }
   });
-
-  /************************************************************
-                          JS ANIMATIONS
-  ************************************************************/
 
     </script>
   </body>

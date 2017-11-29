@@ -3,7 +3,6 @@
   width: 200px;
   height: 200px;
   position: absolute;
-  left: 100px;
 }
 #two {
   width: 200px;
@@ -17,12 +16,9 @@
 
 
 /*Colors and Fonts*/
-.platform-start {
-	background-color: rgba(255,255,0,1);
-}
 #one {
-  background-color: rgba(255,0,0,0.5);
+  background-color: rgba(25, 157, 216, 0.75);
 }
 #two {
-  background-color: rgba(255,0,0,0.5);
+  background-color: rgba(25, 157, 216, 0.75);
 }

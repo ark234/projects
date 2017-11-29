@@ -1,25 +1,17 @@
 /*Size & Positioning*/
 .platform-win {
-  width: 90px;
-  height: 90px;
-  left: 1305px;
-  top: 5px !important;
-  position: absolute;
+  top: 0 !important;
 }
 #one{
-  width: 1300px;
+  width: 1400px;
   height: 100px;
   position: absolute;
-  left: 100px;
 }
 /*Animations*/
 
 
 
 /*Colors and Fonts*/
-.platform-start {
-	background-color: rgba(255,255,0,1);
-}
 #one {
-  background-color: rgba(255,0,0,0.5);
+  background-color: rgba(25, 157, 216, 0.75);
 }
