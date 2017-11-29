@@ -1,6 +1,6 @@
 /*Size, Display & Positioning*/
 body {
-  cursor: url('../images/cursor.png'), auto;
+  cursor: url('../images/codercat.png') 25 25, auto;
 }
 .platform-container {
   width: 1400px;
@@ -39,6 +39,9 @@ p {
 }
 h1 {
 	text-align: center;
+}
+li {
+  list-style: none;
 }
 .txt {
   padding: 25px 15px;
